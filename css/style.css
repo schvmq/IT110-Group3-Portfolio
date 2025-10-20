@@ -1,0 +1,539 @@
+/* ============================================
+   1. BASIC SETUP & VARIABLES
+   👤 OWEN: Study this section for theme colors
+   👤 CHRISTOPHER: Basic HTML resets
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 👤 OWEN: Color variables - controls the entire theme */
+:root {
+    --off-white: #F9F7F7;
+    --light-blue: #DBE2EF;
+    --primary-blue: #3F72AF;
+    --dark-navy: #112D4E;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--off-white);
+    color: var(--dark-navy);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 👤 OWEN: Header layout with logo on left */
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* 👤 OWEN: Logo styling - positioned on left */
+.site-logo {
+    width: 80px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.header-text {
+    flex: 1;
+}
+
+/* Desktop: Logo on left side */
+@media (min-width: 768px) {
+    .header-content {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+}
+
+/* ============================================
+   2. TYPOGRAPHY & TEXT STYLES
+   👤 OWEN: Font sizes and text colors
+   ============================================ */
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    font-size: 0.95rem;
+    color: var(--primary-blue);
+    margin-top: 0;
+}
+
+.team-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--primary-blue);
+    margin-top: 1rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: var(--dark-navy);
+}
+
+/* ============================================
+   3. CARDS & CONTAINERS
+   👤 OWEN: Card layout, borders, and shadows
+   👤 CHRISTOPHER: Card HTML structure
+   ============================================ */
+
+.project-card,
+.member-card {
+    background: white;
+    border-radius: 1rem;
+    border: 2px solid var(--light-blue);
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(63, 114, 175, 0.15);
+}
+
+.project-card {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-navy);
+    margin-bottom: 1rem;
+}
+
+.project-description {
+    color: var(--primary-blue);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+}
+
+/* ============================================
+   4. TEAM MEMBER CARDS
+   👤 OWEN: Grid layout (responsive design)
+   👤 KIRBY: Hover effects and transitions
+   ============================================ */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    justify-items: center;
+}
+
+.member-card {
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    cursor: pointer;
+    transition: all 0.3s ease;  /* 👤 KIRBY: Smooth transitions */
+}
+
+/* 👤 KIRBY: Hover effect - moves card up and changes shadow */
+.member-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(63, 114, 175, 0.25);
+    border-color: var(--primary-blue);
+}
+
+.member-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-navy);
+    margin-bottom: 0.5rem;
+}
+
+.member-role {
+    color: var(--primary-blue);
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.view-profile-hint {
+    display: block;
+    font-size: 0.85rem;
+    color: #5d86b8;
+    margin-top: 1rem;
+    font-style: italic;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;  /* 👤 KIRBY: Fade effect */
+}
+
+/* 👤 KIRBY: Text becomes more visible on hover */
+.member-card:hover .view-profile-hint {
+    opacity: 1;
+    color: var(--primary-blue);
+}
+
+/* ============================================
+   5. BUTTONS
+   👤 OWEN: Button colors and gradients
+   👤 KIRBY: Button hover animations
+   ============================================ */
+
+.btn-primary,
+.btn-full-width {
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-navy));  /* 👤 OWEN: Gradient */
+    color: white;
+    font-weight: 700;
+    padding: 0.875rem 2rem;
+    border-radius: 2rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(63, 114, 175, 0.35);
+    transition: all 0.3s ease;  /* 👤 KIRBY: Transition for hover */
+}
+
+.btn-full-width {
+    width: 100%;
+    border-radius: 1.5rem;
+}
+
+/* 👤 KIRBY: Button grows bigger on hover */
+.btn-primary:hover,
+.btn-full-width:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(63, 114, 175, 0.45);
+}
+
+.btn-secondary {
+    background: none;
+    border: none;
+    color: var(--primary-blue);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    color: var(--dark-navy);
+}
+
+/* ============================================
+   6. QUOTE GENERATOR APP
+   👤 OWEN: App container styling
+   👤 MAE: Connected to JavaScript API calls
+   👤 ICOREYKJAVIK: Loading spinner control
+   ============================================ */
+
+.app-container {
+    max-width: 36rem;
+    margin: 0 auto;
+    background: white;
+    border-radius: 1.25rem;
+    border: 2px solid var(--light-blue);
+    box-shadow: 0 12px 30px rgba(63, 114, 175, 0.2);
+    padding: 1.5rem;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--light-blue);
+}
+
+.app-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-navy);
+}
+
+.quote-display {
+    padding: 1.5rem;
+    background: var(--off-white);
+    border-radius: 1rem;
+    min-height: 150px;
+    border: 2px solid var(--light-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#quote-display blockquote {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--dark-navy);
+    line-height: 1.8;
+}
+
+#quote-display figcaption {
+    margin-top: 1rem;
+    text-align: right;
+    color: var(--primary-blue);
+    font-weight: 500;
+}
+
+.quote-placeholder {
+    color: #5d86b8;
+    font-style: italic;
+}
+
+.error-message {
+    margin-top: 1rem;
+    color: #d32f2f;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* 👤 ICOREYKJAVIK: Loading spinner controlled by JavaScript */
+.loading-spinner.flex {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+/* 👤 KIRBY: Spinning animation */
+.spinner-icon {
+    width: 2rem;
+    height: 2rem;
+    color: var(--primary-blue);
+    animation: spin 1s linear infinite;
+}
+
+/* ============================================
+   7. MEMBER PROFILE MODAL
+   👤 OWEN: Modal styling and layout
+   👤 KIRBY: Modal animations
+   👤 ICOREYKJAVIK: Controlled by JavaScript
+   ============================================ */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal:not(.hidden) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none !important;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(17, 45, 78, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.member-modal-content {
+    position: relative;
+    background: white;
+    border-radius: 1.5rem;
+    max-width: 500px;
+    width: 100%;
+    border: 3px solid var(--light-blue);
+    box-shadow: 0 20px 60px rgba(17, 45, 78, 0.4);
+    z-index: 1001;
+    animation: slideUp 0.3s ease;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--light-blue);
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: var(--dark-navy);
+    cursor: pointer;
+    transition: all 0.3s ease;  /* 👤 KIRBY: Smooth transition */
+}
+
+/* 👤 KIRBY: Close button rotates 90 degrees on hover */
+.modal-close-btn:hover {
+    background: var(--primary-blue);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+}
+
+.modal-member-avatar {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    border: 5px solid var(--primary-blue);
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 8px 20px rgba(63, 114, 175, 0.3);
+}
+
+.modal-member-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--dark-navy);
+    margin-bottom: 0.75rem;
+}
+
+.modal-member-role {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+}
+
+.modal-member-bio {
+    font-size: 1rem;
+    color: var(--primary-blue);
+    line-height: 1.7;
+    text-align: left;
+    padding: 1.5rem;
+    background: var(--off-white);
+    border-radius: 0.75rem;
+    border-left: 4px solid var(--primary-blue);
+}
+
+/* ============================================
+   8. ANIMATIONS
+   👤 KIRBY: All keyframe animations
+   ============================================ */
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* ============================================
+   9. RESPONSIVE DESIGN (Mobile to Desktop)
+   👤 OWEN: Media queries for different screen sizes
+   ============================================ */
+
+/* Tablet (640px and up) */
+@media (min-width: 640px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .site-logo {
+        width: 100px;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .app-container {
+        padding: 2rem;
+    }
+    
+    .app-title {
+        font-size: 1.875rem;
+    }
+}
+
+/* Large screens (900px and up) - 3-2 layout */
+@media (min-width: 900px) {
+    .team-grid {
+        grid-template-columns: repeat(6, 1fr);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* First 3 cards take 2 columns each */
+    .member-card:nth-child(1),
+    .member-card:nth-child(2),
+    .member-card:nth-child(3) {
+        grid-column: span 2;
+    }
+    
+    /* Last 2 cards centered */
+    .member-card:nth-child(4) {
+        grid-column: 2 / 4;
+    }
+    
+    .member-card:nth-child(5) {
+        grid-column: 4 / 6;
+    }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .container {
+        padding: 2rem;
+        max-width: 1300px;
+    }
+    
+    .site-logo {
+        width: 120px;
+    }
+    
+    .page-title {
+        font-size: 3rem;
+    }
+}

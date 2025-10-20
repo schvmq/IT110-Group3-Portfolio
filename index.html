@@ -1,11 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- 👤 CHRISTOPHER: Document metadata and links -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group 3</title>
+    <title>The Quote Collective | Group Portfolio</title>
+    <!-- Favicon - Logo in browser tab -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+
+    <div class="container">
+
+        <!-- 👤 CHRISTOPHER: Main portfolio section structure -->
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="fade-in">
+            <header class="portfolio-header">
+                <div class="header-content">
+                    <!-- Logo on the left side -->
+                    <img src="assets/logo.png" alt="The Quote Collective Logo" class="site-logo">
+                    <div class="header-text">
+                        <h1 class="page-title">The Quote Collective</h1>
+                        <p class="page-subtitle">A showcase of our team's collaboration and a portal to our Quote Generator application.</p>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <!-- 👤 CHRISTOPHER: Project description card -->
+                <!-- Project Description -->
+                <div class="project-card">
+                    <h2 class="card-title">About the Project</h2>
+                    <p class="project-description">
+                        Our primary goal for this project was to design, build, and deploy a functional web application that interacts with a public API. We chose to create a Random Quote Generator using the DummyJSON Quotes API, a tool that provides inspirational and thought-provoking quotes on demand. This project demonstrates our skills in HTML, CSS, and JavaScript, focusing on clean UI/UX, effective API integration, and robust error handling. We utilized modern web development practices, including responsive design, to ensure a seamless experience across all devices.
+                    </p>
+                    <div class="button-container">
+                        <button id="launch-app-btn" class="btn-primary">
+                            Launch Quote Generator
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 👤 CHRISTOPHER: Team member cards structure with data attributes -->
+                <!-- Team Profiles -->
+                <div>
+                    <h2 class="section-title">Meet the Team</h2>
+                    <p class="team-subtitle">Click on any member to view their full profile</p>
+                    <div class="team-grid">
+                        <!-- Member 1 -->
+                        <div class="member-card card-hover-effect" 
+                             data-name="Christopher Rey Sanico"
+                             data-role="HTML Structure Lead"
+                             data-bio="Built the semantic HTML foundation for both the portfolio and quote generator sections, ensuring proper document structure and accessibility standards."
+                             data-image="assets/christuper.png">
+                            <h3 class="member-name">Christopher Rey Sanico</h3>
+                            <p class="member-role">HTML Structure Lead</p>
+                            <span class="view-profile-hint">Click to view profile</span>
+                        </div>
+                        <!-- Member 2 -->
+                        <div class="member-card card-hover-effect"
+                             data-name="Vincent Owen Cedeño"
+                             data-role="CSS Layout & Theme Designer"
+                             data-bio="Designed the responsive grid layouts, implemented the blue color palette theme, and styled all cards and containers for a cohesive visual experience."
+                             data-image="assets/me.png">
+                            <h3 class="member-name">Vincent Owen Cedeño</h3>
+                            <p class="member-role">CSS Layout & Theme Designer</p>
+                            <span class="view-profile-hint">Click to view profile</span>
+                        </div>
+                        <!-- Member 3 -->
+                        <div class="member-card card-hover-effect"
+                             data-name="Kirby Legada"
+                             data-role="CSS Interactivity & Animation Designer"
+                             data-bio="Created smooth hover effects, fade-in animations, and interactive button transitions to enhance user engagement and provide visual feedback."
+                             data-image="https://placehold.co/128x128/10B981/FFFFFF?text=CK">
+                            <h3 class="member-name">Kirby Legada</h3>
+                            <p class="member-role">CSS Interactivity & Animation Designer</p>
+                            <span class="view-profile-hint">Click to view profile</span>
+                        </div>
+                        <!-- Member 4 -->
+                        <div class="member-card card-hover-effect"
+                             data-name="Sacha Mae Jaban"
+                             data-role="JavaScript & API Integration Lead"
+                             data-bio="Integrated the DummyJSON Quotes API using fetch, implemented async/await functionality, and handled error responses with graceful fallbacks."
+                             data-image="assets/mae.png">
+                            <h3 class="member-name">Sacha Mae Jaban</h3>
+                            <p class="member-role">JavaScript & API Integration Lead</p>
+                            <span class="view-profile-hint">Click to view profile</span>
+                        </div>
+                        <!-- Member 5 -->
+                        <div class="member-card card-hover-effect"
+                             data-name="Icoreykjavik Sebog"
+                             data-role="JavaScript UI & Functionality Developer"
+                             data-bio="Developed interactive UI components, managed page navigation between portfolio and app sections, and implemented loading spinner functionality."
+                             data-image="assets/aiko.png">
+                            <h3 class="member-name">Icoreykjavik Sebog</h3>
+                            <p class="member-role">JavaScript UI & Functionality Developer</p>
+                            <span class="view-profile-hint">Click to view profile</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- 👤 CHRISTOPHER: Modal structure for member profiles -->
+        <!-- 👤 ICOREYKJAVIK: Modal controlled by JavaScript -->
+        <!-- Member Profile Modal -->
+        <div id="member-modal" class="modal hidden" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+            <div class="modal-overlay"></div>
+            <div class="modal-content member-modal-content">
+                <button id="close-member-modal" class="modal-close-btn" aria-label="Close">&times;</button>
+                <div class="modal-body">
+                    <img id="modal-member-image" class="modal-member-avatar" src="" alt="Member avatar">
+                    <h2 id="modal-member-name" class="modal-member-name"></h2>
+                    <p id="modal-member-role" class="modal-member-role"></p>
+                    <p id="modal-member-bio" class="modal-member-bio"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 👤 CHRISTOPHER: Quote generator app structure -->
+        <!-- 👤 MAE: This section is controlled by JavaScript API calls -->
+        <!-- Quote Generator App Section -->
+        <section id="app" class="hidden">
+            <div class="app-container">
+                <div class="app-header">
+                    <h2 class="app-title">Quote Generator</h2>
+                    <button id="back-to-portfolio-btn" class="btn-secondary">
+                        &larr; Back to Portfolio
+                    </button>
+                </div>
+                
+                <div class="button-group">
+                     <button id="get-quote-btn" class="btn-full-width">
+                        Get a New Quote
+                    </button>
+                </div>
+
+                <!-- Result Display -->
+                <div class="quote-result-container">
+                    <div id="loading-spinner" class="loading-spinner hidden">
+                        <svg class="spinner-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="spinner-circle" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="spinner-path" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+                    <div id="quote-display" class="quote-display">
+                        <p class="quote-placeholder">Your quote will appear here</p>
+                    </div>
+                    <div id="error-message" class="error-message"></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- 👤 CHRISTOPHER: JavaScript file link -->
+    <script src="js/script.js"></script>
 </body>
 </html>
