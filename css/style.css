@@ -221,6 +221,12 @@ body {
     box-shadow: 0 8px 25px rgba(63, 114, 175, 0.45);
 }
 
+/* Style links as buttons */
+a.btn-primary {
+    display: inline-block;
+    text-decoration: none;
+}
+
 .btn-secondary {
     background: none;
     border: none;
@@ -233,6 +239,11 @@ body {
 
 .btn-secondary:hover {
     color: var(--dark-navy);
+}
+
+/* Style links as secondary buttons */
+a.btn-secondary {
+    text-decoration: none;
 }
 
 /* ============================================

@@ -1,4 +1,4 @@
-# Project Kemerut - Group Portfolio & Quote Generator
+# The Quote Collective - Group Portfolio & Quote Generator
 
 A group portfolio website featuring a Random Quote Generator that fetches inspirational quotes from a public API.
 

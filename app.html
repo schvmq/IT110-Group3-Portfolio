@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 👤 CHRISTOPHER: Document metadata and links -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator | The Quote Collective</title>
+    <!-- Favicon - Logo in browser tab -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- 👤 CHRISTOPHER: Quote generator app structure -->
+        <!-- 👤 MAE: This section uses JavaScript API calls -->
+        <section id="app" class="fade-in">
+            <div class="app-container">
+                <div class="app-header">
+                    <h2 class="app-title">Quote Generator</h2>
+                    <a href="index.html" class="btn-secondary">
+                        &larr; Back to Portfolio
+                    </a>
+                </div>
+                
+                <div class="button-group">
+                     <button id="get-quote-btn" class="btn-full-width">
+                        Get a New Quote
+                    </button>
+                </div>
+
+                <!-- 👤 MAE: Result Display section -->
+                <div class="quote-result-container">
+                    <!-- 👤 ICOREYKJAVIK: Loading spinner -->
+                    <div id="loading-spinner" class="loading-spinner hidden">
+                        <svg class="spinner-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="spinner-circle" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="spinner-path" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+                    <div id="quote-display" class="quote-display">
+                        <p class="quote-placeholder">Your quote will appear here</p>
+                    </div>
+                    <div id="error-message" class="error-message"></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- 👤 MAE & ICOREYKJAVIK: JavaScript file for quote generator -->
+    <script src="js/app.js"></script>
+</body>
+</html>
+
